@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block title %}<title>Products list</title>{% endblock title %}
+{% block content %}
+<style>
+    h1 {
+        margin-top: 60px;
+        text-align: center;
+        color: #0275d8;    
+    }
+    
+    .container {
+        margin-top: 20px;
+    }
+
+    body {
+        background-color: #f5f5f5;
+    }
+    
+    hr {
+        height: 12px;
+        border: 0;
+        box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+        width: 700px;
+        margin: auto;
+    }
+    
+    form {
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    #jj {
+        margin-bottom: 20px;
+    }
+    
+    #sec {
+        width: 250px;
+        margin: auto;
+    }
+    
+    .product-card {
+        width: 18rem;
+        margin: 10px; /* Add spacing between cards */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    }
+
+    .product-card img {
+        max-height: 200px; /* Limit the image height */
+        object-fit: cover; /* Maintain image aspect ratio */
+    }
+
+    .product-card .card-body {
+        padding: 10px;
+    }
+    #tt{
+        margin: 100px;
+    }
+</style>
+<div id="tt">
+<form class="d-flex" role="search" action="{% url 'search1' %}" method="get">
+    {% csrf_token %}
+    <input class="form-control me-2" type="search" placeholder="Search for product" aria-label="Search" name="q" id="sec">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+
+<h1>Select The Products You Want</h1>
+<span id="container"><hr></span><br>
+
+<div class='container' id='jj'>
+    <div class="row">
+        {% for item in products %}
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="{{ item.product_image.url }}" class="card-img-top" alt="not here">
+                <div class="card-body">
+                    <form action="{% url 'add' %}" method="post"> {# Change method to POST #}
+                        {% csrf_token %}
+                        <h5 class="card-title">{{ item.name }}</h5>
+                        <p class="card-text">{{ item.description }}</p>
+                        <p class="card-text">Rs.{{ item.selling_price }}</p>
+                        <p class="card-text">{{ item.id}}</p>
+                        <input type="hidden" name="product_name" value="{{ item.name }}"> {# Add a hidden field for product name #}
+                        <input type="hidden" name="product_ide" value="{{ item.id }}"> {# Add a hidden field for product name #}
+                        <input type="hidden" name="product_price" value="{{ item.selling_price }}"> {# Add a hidden field for product name #}
+                        <div class="form-group">
+                            <label for="rob">Quantity</label>
+                            <input type="text" id="rob" name="quantity" class="form-control" placeholder="Enter the amount you want">
+                        </div>
+                        <input type="submit" class="btn btn-success" value="Add to Cart">
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block title %}<title>About Us</title>{% endblock title %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Deepti Medicals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            margin: 50px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            border-radius: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-top: 20px;
+            color: #333;
+        }
+        .brand {
+            color: #0275d8;
+            font-weight: bold;
+        }
+        .subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        strong {
+            font-weight: bold;
+        }
+        .btn-primary {
+     
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+          
+            text-decoration: none;
+            display: inline-block;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to <span class="brand">Deepti Medicals</span></h1>
+        <p class="subtitle">Your Trusted Health Partner Since 2002</p>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Established in 2002 by Mr. Raj, Deepti Medicals has been proudly serving the community of Karungal for over two decades. Our commitment to providing top-notch healthcare products and services has earned us the reputation of being one of the best medical stores in the area. Conveniently located opposite the Karungal Bus Stand, we have been a reliable partner in your health journey.</p>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <ol>
+                <li><strong>Quality Medications:</strong> At Deepti Medicals, we prioritize your health above all else. We stock a wide range of genuine and high-quality medications, ensuring that you have access to the treatments you need.</li>
+                <li><strong>Expert Guidance:</strong> Our experienced pharmacists are always ready to assist you. Whether you have questions about your prescribed medication or need advice on over-the-counter products, we're here to provide accurate information and guidance.</li>
+                <li><strong>Healthcare Essentials:</strong> Beyond medications, we offer an extensive selection of healthcare essentials, including vitamins, supplements, first aid supplies, and personal care products. Your well-being is our priority, and we're dedicated to providing you with everything you need to stay healthy.</li>
+                <li><strong>Home Delivery:</strong> We understand that health matters can sometimes be urgent or inconvenient. That's why we offer a convenient home delivery service for your medications and healthcare products. Just let us know what you need, and we'll bring it right to your doorstep.</li>
+                <li><strong>Friendly Atmosphere:</strong> Deepti Medicals isn't just a store – it's a place where you're treated like family. Our friendly staff is always ready to assist you with a smile, ensuring that your experience with us is pleasant and hassle-free.</li>
+            </ol>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <a class="btn btn-primary" href="{% url 'contact' %}">Contact Details</a>
+        </section>
+    </div>
+</body>
+</html>
+{% endblock content %}

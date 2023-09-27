@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}<title>registration Page</title>{% endblock title %}
+{% block content %}
+<style>
+    .container{
+        margin-top: 10%;
+        background:white;
+        width:500px;
+        border-radius:20px;
+        margin-bottom:250px;
+        
+    }
+    body{
+      background-color: #f5f5f5;
+    }
+    h1{
+        text-align:center;
+        padding-top:20px;
+    }
+    button[type='submit']{
+        margin-left:35%;
+        margin-bottom:20px;
+    }
+    #jino{
+        margin-left:30%;
+    }
+
+</style>
+<div class='container'>
+<form method='post'>
+    <div class="mb-3" >
+        <h1>Registration Page</h1>
+        {{form.as_p}}
+        {% csrf_token %}
+        <input type='submit' class='btn btn-primary' value='signup'>
+  </form>
+</div>
+{% endblock content %}

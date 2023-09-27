@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}<title>Your Cart</title>{% endblock title %}
+{% block content %}
+<style>
+    .container {
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+    #bb{
+        margin-left: 53%;
+    }
+</style>
+<div class="container">
+    <h1>Your Cart</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <!-- <th>id</th> -->
+                <th>Medicine name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart %}
+                <tr>
+                   <!-- <td>{{item.product_id}}</td> -->
+                    <td>{{ item.product_name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>Rs.{{ item.product_price }}</td>
+                    <td>
+                        <form method="post" action="{% url 'remove_item' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="item_id" value="{{ item.product_id }}">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+           
+        </tbody>
+       
+    </table>
+    <a href="{% url 'viewcart' %}" class="btn btn-success">click to see total amount</a>
+    <div id="bb"><strong>Total Price: </strong>Rs.{{ total_price }}</div>
+    <a href="{% url 'category' %}" class="btn btn-primary">Purchase more medicines</a>
+    <a href="{% url 'admin_cart' %}" class="btn btn-warning">Make Payment</a>
+</div>
+{% endblock content %}
+

@@ -1,0 +1,27 @@
+<!-- admin_cart.html -->
+{% extends 'base.html' %}  {# Assuming you have a base template for the admin panel #}
+{% block content %}
+<style>
+    h2{
+        margin-top: 70px;
+        color: blue;
+        font-style: italic;
+        text-align: center;
+    }
+    #oo{
+        text-align: center;
+        color: blue;
+        font-style: italic;
+        padding-bottom: 70px;
+    }
+
+    .container{
+        border-radius: 7px;
+    }
+</style>
+<div class="container bg-light">
+    <h2>Your order is placed and the product will delivered soon</h2>
+    <p id="oo">thanks for ordering our medicine see you soon.....</p>
+   
+</div>
+{% endblock content %}

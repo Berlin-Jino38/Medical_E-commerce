@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}<title>Login Page</title>{% endblock title %}
+{% block content %}
+<style>
+    .container{
+        margin-top: 10%;
+        background:white;
+        width:500px;
+        border-radius:20px;
+        
+    }
+    body{
+      background-color: #f5f5f5;
+    }
+    h1{
+        text-align:center;
+        padding-top:20px;
+    }
+    button[type='submit']{
+        margin-left:35%;
+        margin-bottom:20px;
+    }
+    #jino{
+        margin-left:15%;
+    }
+
+</style>
+<div class='container'>
+    
+<form method='post'>
+    <h1>Login Page</h1>
+        {{form.as_p}}
+        {% csrf_token %}
+        <input type="submit" value='Login' class="btn btn-success">
+        <p style="display: inline-block;">if you Don't have an account?</p>
+        <a href="{% url 'register' %}" style="display: inline-block;">register here</a>
+      </div>
+  </form>
+</div>
+{% endblock content %}
